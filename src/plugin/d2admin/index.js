@@ -1,4 +1,4 @@
-// Element
+// ElementUI
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // flex 布局库
@@ -29,7 +29,7 @@ export default {
         Vue.prototype.$version = process.env.VUE_APP_VERSION
         // 构建时间
         Vue.prototype.$buildTime = process.env.VUE_APP_BUILD_TIME
-        // Element
+        // 使用 Element UI
         Vue.use(ElementUI)
         // 插件
         Vue.use(pluginError)
