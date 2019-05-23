@@ -10,6 +10,7 @@ export default [
     method: 'post',
     handle ({ body }) {
       const user = userDB.find(e => e.username === body.username && e.password === body.password)
+        console.log("mock 登录了。。。。。")
       if (user) {
         return {
           code: 0,

@@ -43,9 +43,10 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // 在请求发送之前做一些处理
-      console.log("进入 请求拦截器 。。。。。。。。。。。。。")
     const token = util.cookies.get('token')
-    // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
+      console.log("进入 请求拦截器 。。。。。。。。。。。。。"+token)
+
+      // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
     config.headers['X-Token'] = token
     return config
   },
@@ -59,9 +60,10 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   response => {
-      console.log("进入 响应拦截器 。。。。。。。。。。。。。")
+
     // dataAxios 是 axios 返回数据中的 data
     const dataAxios = response.data
+      console.log("进入 响应拦截器 。。。。。。。。。。。。。"+dataAxios)
     // 这个状态码是和后端约定的
     const { code } = dataAxios
     // 根据 code 进行判断
