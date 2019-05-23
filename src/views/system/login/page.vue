@@ -82,34 +82,39 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 export default {
-  data () {
-    return {
-      timeInterval: null,
-      time: dayjs().format('HH:mm:ss'),
-      // 快速选择用户
-      dialogVisible: false,
-      users: [
-        { name: '管理员',username: 'admin', password: 'admin' },
-        { name: '编辑',username: 'editor', password: 'editor' },
-        { name: '用户1',  username: 'user1', password: 'user1' }
-      ],
-      // 表单
-      formLogin: {  username: 'admin',password: 'admin', code: 'v9am' },
+    data () {
+        return {
+            timeInterval: null,
+            time: dayjs().format('HH:mm:ss'),
+            // 快速选择用户
+            dialogVisible: false,
+            users: [
+                { name: '管理员',username: 'admin', password: 'admin' },
+                { name: '编辑',username: 'editor', password: 'editor' },
+                { name: '用户1',  username: 'user1', password: 'user1' }
+            ],
+            // 登录表单
+            formLogin: {  username: 'admin',password: 'admin', code: 'v9am' },
 
-      // 校验
-      rules: {
-        username: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
-        ],
-        password: [
-          { required: true, message: '请输入密码', trigger: 'blur' }
-        ],
-        code: [
-          { required: true, message: '请输入验证码', trigger: 'blur' }
-        ]
-      }
-    }
-  },
+            /** 表单校验
+             * 1. 通过   <el-form> 标签中的  :rules="rules" :rules 属性 关联 data 中的 rules
+             * 2. 通过  <el-form-item prop="password"> 标签中的 prop 属性 关联 data 中rules中的 对应校检属性
+             */
+            rules: {
+                username: [
+                    { required: true, message: '请输入用户名', trigger: 'blur' },
+                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                ],
+                password: [
+                    { required: true, message: '请输入密码', trigger: 'blur' },
+                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                ],
+                code: [
+                    { required: true, message: '请输入验证码', trigger: 'blur' }
+                ]
+            }
+        }
+    },
   mounted () {
     this.timeInterval = setInterval(() => {
       this.refreshTime()
@@ -133,13 +138,11 @@ export default {
       this.formLogin.password = user.password
       this.submit()
     },
-    /**
-     * @description 提交表单
-     */
+
+    /*** @description 提交表单*/
     submit () {
       this.$refs.loginForm.validate((valid) => {
-        if (valid) {
-          // 登录 注意 这里的演示没有传验证码 具体需要传递的数据请自行修改代码
+        if (valid) { // 登录 注意 这里的演示没有传验证码 具体需要传递的数据请自行修改代码
           this.login({
             username: this.formLogin.username,
             password: this.formLogin.password
