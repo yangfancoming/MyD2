@@ -1,33 +1,20 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 
-// 进度条
-import NProgress from 'nprogress'
+import NProgress from 'nprogress' // 进度条
 import 'nprogress/nprogress.css'
-
 import store from '@/store/index'
-
 import util from '@/libs/util.js'
-
-// 路由数据
-import routes from './routes'
+import routes from './routes' // 路由数据
+import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-// 导出路由 在 main.js 里使用
-const router = new VueRouter({
-  routes
-})
+const router = new VueRouter({routes}) // 导出路由 在 main.js 里使用
 
-/**
- * 路由拦截
- * 权限验证
- */
+/** 路由拦截 权限验证 */
 router.beforeEach((to, from, next) => {
-  // 进度条
-  NProgress.start()
-  // 关闭搜索面板
-  store.commit('d2admin/search/set', false)
+  NProgress.start() // 进度条
+  store.commit('d2admin/search/set', false) // 关闭搜索面板
   // 验证当前路由所有的匹配中是否需要有登录验证的
   if (to.matched.some(r => r.meta.auth)) {
     // 这里暂时将cookie里是否存有token作为验证是否登录的条件
@@ -36,8 +23,7 @@ router.beforeEach((to, from, next) => {
     if (token && token !== 'undefined') {
       next()
     } else {
-      // 没有登录的时候跳转到登录界面
-      // 携带上登陆成功之后需要跳转的页面完整路径
+      // 没有登录的时候跳转到登录界面 携带上登陆成功之后需要跳转的页面完整路径
       next({  name: 'login', query: { redirect: to.fullPath } })
       // https://github.com/d2-projects/d2-admin/issues/138
       NProgress.done()

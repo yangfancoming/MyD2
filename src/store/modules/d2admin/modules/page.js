@@ -316,9 +316,7 @@ export default {
         await dispatch('opend2db')
         // 关闭所有的标签页后需要判断一次现在是不是在首页
         if (router.app.$route.name !== 'index') {
-          router.push({
-            name: 'index'
-          })
+          router.push({name: 'index' })
         }
         // end
         resolve()
