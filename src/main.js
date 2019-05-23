@@ -11,8 +11,8 @@ import i18n from './i18n'
 
 // 菜单和路由设置
 import router from './router' // 导入 router，在当前目录中 找到文件夹 router，并根据加载规则找到 router 目录下的 index.js文件
-import menuHeader from '@/menu/header'
-import menuAside from '@/menu/aside'
+import menuHeader from '@/menu/header'// 获取 顶部菜单 数据源
+import menuAside from '@/menu/aside'  // 获取 左侧菜单 数据源
 import { frameInRoutes } from '@/router/routes'
 
 // 核心插件
@@ -22,14 +22,10 @@ new Vue({
     router,store,i18n,
     render: h => h(App), // 绑定app 挂载区域
     created () {
-        // 处理路由 得到每一级的路由设置
-        this.$store.commit('d2admin/page/init', frameInRoutes)
-        // 设置顶栏菜单
-        this.$store.commit('d2admin/menu/headerSet', menuHeader)
-        // 设置侧边栏菜单
-        this.$store.commit('d2admin/menu/asideSet', menuAside)
-        // 初始化菜单搜索功能
-        this.$store.commit('d2admin/search/init', menuHeader)
+        this.$store.commit('d2admin/page/init', frameInRoutes)    // 处理路由 得到每一级的路由设置
+        this.$store.commit('d2admin/menu/headerSet', menuHeader)  // 设置顶部菜单
+        this.$store.commit('d2admin/menu/asideSet', menuAside)    // 设置左侧菜单 src/store/modules/d2admin/modules/menu.js
+        this.$store.commit('d2admin/search/init', menuHeader)     // 初始化菜单搜索功能
     },
     mounted () {
         // 展示系统信息

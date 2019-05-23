@@ -4,12 +4,9 @@ import setting from '@/setting.js'
 export default {
   namespaced: true,
   state: {
-    // 顶栏菜单
-    header: [],
-    // 侧栏菜单
-    aside: [],
-    // 侧边栏收缩
-    asideCollapse: setting.menu.asideCollapse
+    header: [],  // 顶栏菜单
+    aside: [], // 侧栏菜单
+    asideCollapse: setting.menu.asideCollapse  // 侧边栏收缩
   },
   actions: {
     /**
@@ -19,8 +16,7 @@ export default {
      */
     asideCollapseSet ({ state, dispatch }, collapse) {
       return new Promise(async resolve => {
-        // store 赋值
-        state.asideCollapse = collapse
+        state.asideCollapse = collapse  // store 赋值
         // 持久化
         await dispatch('d2admin/db/set', {
           dbName: 'sys',
@@ -75,18 +71,13 @@ export default {
      * @param {Object} state vuex state
      * @param {Array} menu menu setting
      */
-    headerSet (state, menu) {
-      // store 赋值
-      state.header = menu
-    },
+    headerSet (state, menu) { state.header = menu },
+
     /**
      * @description 设置侧边栏菜单
      * @param {Object} state vuex state
      * @param {Array} menu menu setting
      */
-    asideSet (state, menu) {
-      // store 赋值
-      state.aside = menu
-    }
+    asideSet (state, menu) { state.aside = menu }
   }
 }
