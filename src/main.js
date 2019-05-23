@@ -19,7 +19,8 @@ import { frameInRoutes } from '@/router/routes'
 Vue.use(d2Admin)
 
 new Vue({
-    router,store,// 注册全局 store 组件，而 store中又包含了 Vuex
+    router,// 在 new Vue 中注册的所有组件对象 都多了一个$属性 eg： $router $store...
+    store,// 注册全局 store 组件，而 store中又包含了 Vuex
     i18n,
     render: h => h(App), // 绑定app 挂载区域
     created () {
