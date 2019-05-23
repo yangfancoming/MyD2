@@ -144,7 +144,9 @@ export default {
             username: this.formLogin.username,
             password: this.formLogin.password
           })
-            .then(() => { // 重定向对象不存在则返回顶层路径
+            .then(() => { //登录成功后跳转  重定向对象不存在则返回顶层路径
+                console.log(this.$route.query.redirect ,111111111) //  是 undefined
+                console.log(this.$route.query.redirect || '/',2222222222) // 是 /
               this.$router.replace(this.$route.query.redirect || '/')
             })
         } else {

@@ -38,28 +38,19 @@ router.beforeEach((to, from, next) => {
     } else {
       // 没有登录的时候跳转到登录界面
       // 携带上登陆成功之后需要跳转的页面完整路径
-      next({
-        name: 'login',
-        query: {
-          redirect: to.fullPath
-        }
-      })
+      next({  name: 'login', query: { redirect: to.fullPath } })
       // https://github.com/d2-projects/d2-admin/issues/138
       NProgress.done()
     }
   } else {
-    // 不需要身份校验 直接通过
-    next()
+    next()  // 不需要身份校验 直接通过
   }
 })
 
 router.afterEach(to => {
-  // 进度条
-  NProgress.done()
-  // 多页控制 打开新的页面
-  store.dispatch('d2admin/page/open', to)
-  // 更改标题
-  util.title(to.meta.title)
+  NProgress.done()  // 进度条
+  store.dispatch('d2admin/page/open', to) // 多页控制 打开新的页面
+  util.title(to.meta.title)  // 更改标题
 })
 
 export default router

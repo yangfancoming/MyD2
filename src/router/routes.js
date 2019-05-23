@@ -12,64 +12,38 @@ const frameIn = [
     redirect: { name: 'index' },
     component: layoutHeaderAside,
     children: [
-      // 首页
-      {
-        path: 'index',
-        name: 'index',
-        meta: {
-          auth: true
-        },
+
+      {  // 首页
+        path: 'index',name: 'index',
+        meta: { auth: true },
         component: _import('system/index')
       },
-      // 演示页面
-      {
-        path: 'page1',
-        name: 'page1',
-        meta: {
-          title: '页面 1',
-          auth: true
-        },
+      { // 演示页面
+        path: 'page1',name: 'page1',
+        meta: { title: '页面 1',auth: true },
         component: _import('demo/page1')
       },
       {
-        path: 'page2',
-        name: 'page2',
-        meta: {
-          title: '页面 2',
-          auth: true
-        },
+        path: 'page2',name: 'page2',
+        meta: { title: '页面 2', auth: true },
         component: _import('demo/page2')
       },
       {
-        path: 'page3',
-        name: 'page3',
-        meta: {
-          title: '页面 3',
-          auth: true
-        },
+        path: 'page3',name: 'page3',
+        meta: {  title: '页面 3',auth: true },
         component: _import('demo/page3')
       },
-      // 系统 前端日志
-      {
-        path: 'log',
-        name: 'log',
-        meta: {
-          title: '前端日志',
-          auth: true
-        },
+      {  // 系统 前端日志
+        path: 'log', name: 'log',
+        meta: { title: '前端日志',auth: true },
         component: _import('system/log')
       },
-      // 刷新页面 必须保留
-      {
-        path: 'refresh',
-        name: 'refresh',
-        hidden: true,
+      {  // 刷新页面 必须保留
+        path: 'refresh',name: 'refresh',hidden: true,
         component: _import('system/function/refresh')
       },
-      // 页面重定向 必须保留
-      {
-        path: 'redirect/:route*',
-        name: 'redirect',
+      {  // 页面重定向 必须保留
+        path: 'redirect/:route*', name: 'redirect',
         hidden: true,
         component: _import('system/function/redirect')
       }
@@ -81,10 +55,8 @@ const frameIn = [
  * 在主框架之外显示
  */
 const frameOut = [
-  // 登录
-  {
-    path: '/login',
-    name: 'login',
+  { // 登录
+    path: '/login', name: 'login',
     component: _import('system/login')
   }
 ]
@@ -94,8 +66,7 @@ const frameOut = [
  */
 const errorPage = [
   {
-    path: '*',
-    name: '404',
+    path: '*', name: '404',
     component: _import('system/error/404')
   }
 ]
