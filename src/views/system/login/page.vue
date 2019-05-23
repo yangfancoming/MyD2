@@ -5,23 +5,17 @@
         <li v-for="n in 10" :key="n"></li>
       </ul>
     </div>
-    <div
-      class="page-login--layer page-login--layer-time"
-      flex="main:center cross:center">
+    <div class="page-login--layer page-login--layer-time" flex="main:center cross:center">
       {{time}}
     </div>
     <div class="page-login--layer">
-      <div
-        class="page-login--content"
-        flex="dir:top main:justify cross:center box:justify">
+      <div class="page-login--content" flex="dir:top main:justify cross:center box:justify">
         <div class="page-login--content-header">
           <p class="page-login--content-header-motto">
             时间是一切财富中最宝贵的财富。 <span>—— 德奥弗拉斯多</span>
           </p>
         </div>
-        <div
-          class="page-login--content-main"
-          flex="dir:top main:center cross:center">
+        <div class="page-login--content-main" flex="dir:top main:center cross:center">
           <!-- logo -->
           <img class="page-login--logo" src="./image/logo@2x.png">
           <!-- 表单 -->
@@ -49,9 +43,7 @@
                 <el-button size="default" @click="submit" type="primary" class="button-login">登录</el-button>
               </el-form>
             </el-card>
-            <p
-              class="page-login--options"
-              flex="main:justify cross:center">
+            <p class="page-login--options"  flex="main:justify cross:center">
               <span><d2-icon name="question-circle"/> 忘记密码</span>
               <span>注册用户</span>
             </p>
@@ -73,10 +65,7 @@
         </div>
       </div>
     </div>
-    <el-dialog
-      title="快速选择用户"
-      :visible.sync="dialogVisible"
-      width="400px">
+    <el-dialog title="快速选择用户" :visible.sync="dialogVisible"  width="400px">
       <el-row :gutter="10" style="margin: -20px 0px -10px 0px;">
         <el-col v-for="(user, index) in users" :key="index" :span="8">
           <div class="page-login--quick-user" @click="handleUserBtnClick(user)">
@@ -101,10 +90,9 @@ export default {
       dialogVisible: false,
       users: [
         {
-          name: '管理员',
-          username: 'admin',
-          password: 'admin'
-        },
+          name: '管理员',username: 'admin', password: 'admin' },
+
+
         {
           name: '编辑',
           username: 'editor',
@@ -168,8 +156,7 @@ export default {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
           // 登录
-          // 注意 这里的演示没有传验证码
-          // 具体需要传递的数据请自行修改代码
+          // 注意 这里的演示没有传验证码 具体需要传递的数据请自行修改代码
           this.login({
             username: this.formLogin.username,
             password: this.formLogin.password

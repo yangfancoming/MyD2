@@ -18,7 +18,8 @@
         },
         methods:{
             test () {
-                return this.$axios.get('/mobile/get').then(res => {
+                // 这里的this 就vue示例
+                return this.$myHttp.get('/mobile/get').then(res => {
                     console.log(res)
                 }).catch(() => {})
             },
