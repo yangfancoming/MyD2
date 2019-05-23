@@ -6,6 +6,7 @@
 const files = require.context('./modules', false, /\.js$/)
 const modules = {}
 
+// doit 该循环有待研究
 files.keys().forEach(key => {
   modules[key.replace(/(\.\/|\.js)/g, '')] = files(key).default
 })

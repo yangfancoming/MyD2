@@ -3,7 +3,7 @@
     <template slot="header">Page 2 header</template>
 
       <!-- fuck 在vue中 所有js文件名 必须小写！ 否则报错  eg: 将 myvuex.js 文件改成 myVuex.js 则 $store.state.d2admin.myVuex.count 报错 -->
-      <h1> 全局store的 count 属性：（{{ $store.state.d2admin.myvuex.count}}） -------（{{ $store.state.d2admin.myvuex.role_show}}）-------- show 属性：（{{ $store.state.d2admin.myvuex.show}}） </h1><br>
+      <h1> 全局store的 count 属性：（{{ $store.state.d2admin.myvuex.count}}） --------------- show 属性：（{{ $store.state.d2admin.myvuex.show}}） </h1><br>
 
       <!--doit 如何 访问 myvuex.js 中的    actions ？？？？？-->
 
@@ -26,6 +26,7 @@
       <h1>mapGetters 测试 {{ logLength }} </h1><br>
       <h1>mapActions 测试  </h1><br>
       <el-button type="success"  @click="test"> mapActions 测试</el-button>
+      <el-button type="success"  @click="test3"> mapActions test3</el-button>
   </d2-container>
 </template>
 
@@ -46,8 +47,12 @@
             }
         },
         methods:{
-            ...mapMutations('d2admin/myvuex', ['increment','decrement']),
-            ...mapActions('d2admin/myvuex', [ 'test' ]),
+            ...mapMutations('d2admin/myvuex', ['increment','decrement']), // ['increment','decrement']  对应 @click="increment(5)"  可以传入参数
+            ...mapActions('d2admin/myvuex', [ 'test' ]), //  [ 'test' ] 对应  @click="test"
+            test3(){
+                // this.$store.dispatch('d2admin/myvuex',[ 'test2',100 ])
+                this.$store.dispatch('d2admin/myvuex/listen',-10)
+            }
         },
         computed: {
             ...mapGetters('d2admin', {
