@@ -19,7 +19,8 @@ import { frameInRoutes } from '@/router/routes'
 Vue.use(d2Admin)
 
 new Vue({
-    router,store,i18n,
+    router,store,// 注册全局 store 组件，而 store中又包含了 Vuex
+    i18n,
     render: h => h(App), // 绑定app 挂载区域
     created () {
         this.$store.commit('d2admin/page/init', frameInRoutes)    // 处理路由 得到每一级的路由设置
