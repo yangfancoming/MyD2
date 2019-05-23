@@ -25,8 +25,7 @@ export default {
   },
   props: {
     menu: {
-      type: Object,
-      required: false,
+      type: Object,required: false,
       default: () => {}
     }
   },

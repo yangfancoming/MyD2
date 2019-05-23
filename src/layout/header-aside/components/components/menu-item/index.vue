@@ -13,8 +13,7 @@ export default {
   name: 'd2-layout-header-aside-menu-item',
   props: {
     menu: {
-      type: Object,
-      required: false,
+      type: Object,required: false,
       default: () => {}
     }
   },
