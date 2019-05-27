@@ -76,24 +76,24 @@
       </el-row>
     </el-dialog>
 
-      <vue-particles
-              color="#fff"
-              :particleOpacity="0.7"
-              :particlesNumber="30"
-              shapeType="star"
-              :particleSize="5"
-              linesColor="#fff"
-              :linesWidth="2"
-              :lineLinked="true"
-              :lineOpacity="0.4"
-              :linesDistance="150"
-              :moveSpeed="3"
-              :hoverEffect="true"
-              hoverMode="grab"
-              :clickEffect="true"
-              clickMode="push"
-      >
-      </vue-particles>
+      <!--<vue-particles-->
+              <!--color="#fff"-->
+              <!--:particleOpacity="0.7"-->
+              <!--:particlesNumber="30"-->
+              <!--shapeType="star"-->
+              <!--:particleSize="5"-->
+              <!--linesColor="#fff"-->
+              <!--:linesWidth="2"-->
+              <!--:lineLinked="true"-->
+              <!--:lineOpacity="0.4"-->
+              <!--:linesDistance="150"-->
+              <!--:moveSpeed="3"-->
+              <!--:hoverEffect="true"-->
+              <!--hoverMode="grab"-->
+              <!--:clickEffect="true"-->
+              <!--clickMode="push"-->
+      <!--&gt;-->
+      <!--</vue-particles>-->
 
   </div>
 
