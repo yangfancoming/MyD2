@@ -15,6 +15,9 @@ import menuHeader from '@/menu/header'// 获取 顶部菜单 数据源
 import menuAside from '@/menu/aside'  // 获取 左侧菜单 数据源
 import { frameInRoutes } from '@/router/routes'
 
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
+
 // 核心插件
 Vue.use(d2Admin)
 
