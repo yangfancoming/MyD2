@@ -1,6 +1,6 @@
 <template>
   <d2-container :filename="filename">
-    <template slot="header">Page 3 header</template>
+    <template slot="header">Page 4 header</template>
 
       <d2-crud
               ref="d2Crud" :columns="columns" :data="data"
