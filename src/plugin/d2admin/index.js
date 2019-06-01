@@ -1,14 +1,12 @@
-// ElementUI
-import ElementUI from 'element-ui'
+
+import D2Crud from '@d2-projects/d2-crud'
+import ElementUI from 'element-ui'  // 引入 ElementUI
 import 'element-ui/lib/theme-chalk/index.css'
-// flex 布局库
-import 'flex.css'
-// 组件
-import '@/components'
-// svg 图标
-import '@/assets/svg-icons'
-// axios
-import axios from '@/plugin/axios'
+import 'flex.css' // flex 布局库
+import '@/components' // 组件
+import '@/assets/svg-icons' // svg 图标
+import axios from '@/plugin/axios' // axios
+
 // 功能插件
 import pluginError from '@/plugin/error'
 import pluginLog from '@/plugin/log'
@@ -45,5 +43,6 @@ export default {
         Vue.use(pluginError)
         Vue.use(pluginLog)
         Vue.use(pluginOpen)
+        Vue.use(D2Crud)
     }
 }
