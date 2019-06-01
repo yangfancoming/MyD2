@@ -41,20 +41,19 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(
-  config => {
-    // 在请求发送之前做一些处理
-    const token = util.cookies.get('token')
-      console.log("进入 请求拦截器 。。。。。。。。。。。。。"+token)
-
-      // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
-    config.headers['X-Token'] = token
-    return config
-  },
-  error => {
-    // 发送失败
-    console.log(error)
-    Promise.reject(error)
-  }
+    config => {
+        // 在请求发送之前做一些处理
+        const token = util.cookies.get('token')
+        // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
+        config.headers['X-Token'] = token
+        console.log(config,'进入请求拦截器interceptors 。。。。。。。。。。。')
+        return config
+    },
+    error => {
+        // 发送失败
+        console.log(error)
+        Promise.reject(error)
+    }
 )
 
 // 响应拦截器

@@ -51,25 +51,12 @@ const frameIn = [
   }
 ]
 
-/**
- * 在主框架之外显示
- */
-const frameOut = [
-  { // 登录
-    path: '/login', name: 'login',
-    component: _import('system/login')
-  }
-]
 
-/**
- * 错误页面
- */
-const errorPage = [
-  {
-    path: '*', name: '404',
-    component: _import('system/error/404')
-  }
-]
+/** * 在主框架之外显示  登录*/
+const frameOut = [{ path: '/login', name: 'login',component: _import('system/login') }]
+
+/** * 错误页面 */
+const errorPage = [{ path: '*', name: '404', component: _import('system/error/404') }]
 
 // 导出需要显示菜单的
 export const frameInRoutes = frameIn
