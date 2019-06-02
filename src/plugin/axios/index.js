@@ -12,25 +12,20 @@ function errorCreate (msg) {
 
 // 记录和显示错误
 function errorLog (error) {
+
   // 添加到日志
   store.dispatch('d2admin/log/push', {
-    message: '数据请求异常',
-    type: 'danger',
-    meta: {
-      error
-    }
+    message: '数据请求异常',type: 'danger', meta: { error }
   })
+
   // 打印到控制台
   if (process.env.NODE_ENV === 'development') {
     util.log.danger('>>>>>> Error >>>>>>')
     console.log(error)
   }
+
   // 显示提示
-  Message({
-    message: error.message,
-    type: 'error',
-    duration: 5 * 1000
-  })
+  Message({ message: error.message,type: 'error',duration: 5 * 1000 })
 }
 
 // 创建一个 axios 实例
@@ -41,16 +36,13 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(
-    config => {
-        // 在请求发送之前做一些处理
+    config => {  // 在请求发送之前做一些处理  让每个请求携带token-- ['Authorization']为自定义key 请根据实际情况自行修改
         const token = util.cookies.get('token')
-        // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
-        config.headers['X-Token'] = token
+        config.headers['Authorization'] = 'Bearer ' + token
         console.log(config,'进入请求拦截器interceptors 。。。。。。。。。。。')
         return config
     },
-    error => {
-        // 发送失败
+    error => {  // 发送失败
         console.log(error)
         Promise.reject(error)
     }
@@ -59,7 +51,6 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   response => {
-
     // dataAxios 是 axios 返回数据中的 data
     const dataAxios = response.data
       console.log("进入 响应拦截器 。。。。。。。。。。。。。"+dataAxios)
