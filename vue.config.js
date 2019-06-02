@@ -16,6 +16,7 @@ module.exports = {
     lintOnSave: true,
     devServer: {
         publicPath, // 和 publicPath 保持一致
+        port: 9527, // 指定项目 启动端口号
         /*
         * 实际发送请求： http://localhost:8080/api/mobile/get
         *  api 来源于 .env文件的 VUE_APP_API=/api/
